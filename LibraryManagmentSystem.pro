@@ -9,13 +9,19 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    login.cpp \
     main.cpp \
+    signup.cpp \
     startwindow.cpp
 
 HEADERS += \
+    login.h \
+    signup.h \
     startwindow.h
 
 FORMS += \
+    login.ui \
+    signup.ui \
     startwindow.ui
 
 # Default rules for deployment.
