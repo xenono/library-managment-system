@@ -2,6 +2,10 @@
 #define STARTWINDOW_H
 
 #include <QMainWindow>
+#include "startpage.h"
+#include "signuppage.h"
+#include "loginpage.h"
+#include "appwindow.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class StartWindow; }
@@ -12,15 +16,25 @@ class StartWindow : public QMainWindow
     Q_OBJECT
 
 public:
-    StartWindow(QWidget *parent = nullptr);
+    StartWindow(QWidget *parent = nullptr, AppWindow *appWindowPointer = nullptr);
     ~StartWindow();
 
-private slots:
-    void on_pushButton_2_clicked();
 
-    void on_pushButton_clicked();
+public slots:
+    void showLoginPage();
+    void showSignUpPage();
+    void showStartPage();
+    void showAppWindow();
+
+
+private slots:
+
 
 private:
     Ui::StartWindow *ui;
+    StartPage *startPage;
+    LoginPage *loginPage;
+    SignUpPage *signUpPage;
+    AppWindow *appWindow;
 };
 #endif // STARTWINDOW_H
