@@ -6,7 +6,7 @@ AppWindow::AppWindow(QWidget *parent) :
     ui(new Ui::AppWindow)
 {
     ui->setupUi(this);
-    this->move(420,0);
+    this->move(320,180);
 }
 
 AppWindow::~AppWindow()

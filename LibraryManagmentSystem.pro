@@ -10,6 +10,7 @@ CONFIG += c++11
 
 SOURCES += \
     appwindow.cpp \
+    database.cpp \
     loginpage.cpp \
     main.cpp \
     signuppage.cpp \
@@ -18,6 +19,7 @@ SOURCES += \
 
 HEADERS += \
     appwindow.h \
+    database.h \
     loginpage.h \
     signuppage.h \
     startpage.h \
@@ -30,7 +32,27 @@ FORMS += \
     startpage.ui \
     startwindow.ui
 
+QT += sql
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../../mysql/lib/release/ -lmysqlcppconn
+else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../../mysql/lib/debug/ -lmysqlcppconn
+else:unix: LIBS += -L$$PWD/../../mysql/lib/ -lmysqlcppconn
+
+INCLUDEPATH += $$PWD/../../mysql/include
+DEPENDPATH += $$PWD/../../mysql/include
+
+unix:!macx: LIBS += -L$$PWD/../../mysql/lib/ -lmysqlcppconn-static
+
+INCLUDEPATH += $$PWD/../../mysql/include
+DEPENDPATH += $$PWD/../../mysql/include
+
+unix:!macx: PRE_TARGETDEPS += $$PWD/../../mysql/lib/libmysqlcppconn-static.a
+
+unix:!macx: LIBS += -L$$PWD/../../mysql/lib/ -lmysqlcppconn
+
+INCLUDEPATH += $$PWD/../../mysql/include
+DEPENDPATH += $$PWD/../../mysql/include

@@ -6,6 +6,7 @@
 #include "signuppage.h"
 #include "loginpage.h"
 #include "appwindow.h"
+#include "database.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class StartWindow; }
@@ -16,7 +17,7 @@ class StartWindow : public QMainWindow
     Q_OBJECT
 
 public:
-    StartWindow(QWidget *parent = nullptr, AppWindow *appWindowPointer = nullptr);
+    StartWindow(QWidget *parent = nullptr, AppWindow *appWindowPointer = nullptr, Database *dbActor=nullptr);
     ~StartWindow();
 
 
@@ -36,5 +37,6 @@ private:
     LoginPage *loginPage;
     SignUpPage *signUpPage;
     AppWindow *appWindow;
+    Database *db;
 };
 #endif // STARTWINDOW_H

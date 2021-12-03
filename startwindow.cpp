@@ -4,14 +4,16 @@
 #include "signuppage.h"
 #include "ui_startwindow.h"
 #include "appwindow.h"
+#include "database.h"
 
-StartWindow::StartWindow(QWidget *parent, AppWindow *appWindowPointer)
+StartWindow::StartWindow(QWidget *parent, AppWindow *appWindowPointer, Database *dbActor)
     : QMainWindow(parent)
     , ui(new Ui::StartWindow)
 {
     ui->setupUi(this);
     this->move(560,240);
     appWindow = appWindowPointer;
+    db = dbActor;
     appWindow->hide();
     startPage = new StartPage(this);
     loginPage = new LoginPage(this);

@@ -19,7 +19,7 @@
      <x>310</x>
      <y>160</y>
      <width>160</width>
-     <height>227</height>
+     <height>281</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout">
@@ -37,6 +37,16 @@
        <set>Qt::AlignCenter</set>
       </property>
      </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="label_5">
+      <property name="text">
+       <string>Username</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLineEdit" name="lineEdit_4"/>
     </item>
     <item>
      <widget class="QLabel" name="label_3">
