@@ -17,8 +17,10 @@ public:
 
 signals:
     void showStartPageSignal();
+    void createAccountSignal(QString username, QString email, QString password, QString confirmedPassword);
 private slots:
     void on_pushButton_2_clicked();
+    void on_pushButton_clicked();
 
 private:
     Ui::SignUpPage *ui;

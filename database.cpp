@@ -32,3 +32,25 @@ bool Database::CheckCredentials(QString username, QString password){
         return 0;
     return 1;
 }
+
+void Database::CreateUser(QString username, QString email, QString password, QString confirmedPassword){
+   if(password != confirmedPassword){
+       QMessageBox errorBox;
+       errorBox.setText("Passwords are not the same!");
+       errorBox.exec();
+       return;
+   }
+   QSqlQuery query;
+   query.prepare("INSERT INTO users (username,email,password) VALUES (:username,:email,:password)");
+   query.bindValue(":username", username);
+   query.bindValue(":email", email);
+   query.bindValue(":password", password);
+   query.exec();
+}
+
+
+
+
+
+
+

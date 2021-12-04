@@ -25,7 +25,8 @@ public slots:
     void showLoginPage();
     void showSignUpPage();
     void showStartPage();
-    void showAppWindow();
+    void Login(QString username, QString password);
+    void CreateAccount(QString username, QString email, QString password, QString confirmedPasswordd);
 
 
 private slots:

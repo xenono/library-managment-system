@@ -23,9 +23,7 @@ void LoginPage::on_pushButton_clicked()
 {
     QString username = ui->lineEdit->text();
     QString password = ui->lineEdit_2->text();
-
-    if(username.toStdString()=="root" && password.toStdString() == "root")
-        emit showAppWindowSignal();
+    emit LoginSignal(username,password);
 
 }
 

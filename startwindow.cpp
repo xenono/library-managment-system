@@ -6,6 +6,8 @@
 #include "appwindow.h"
 #include "database.h"
 
+#include <QMessageBox>
+
 StartWindow::StartWindow(QWidget *parent, AppWindow *appWindowPointer, Database *dbActor)
     : QMainWindow(parent)
     , ui(new Ui::StartWindow)
@@ -25,7 +27,9 @@ StartWindow::StartWindow(QWidget *parent, AppWindow *appWindowPointer, Database 
     QObject::connect(startPage, SIGNAL(showSignUpPageSignal()),this, SLOT(showSignUpPage()));
     QObject::connect(loginPage, SIGNAL(showStartPageSignal()),this, SLOT(showStartPage()));
     QObject::connect(signUpPage, SIGNAL(showStartPageSignal()),this, SLOT(showStartPage()));
-    QObject::connect(loginPage, SIGNAL(showAppWindowSignal()),this, SLOT(showAppWindow()));
+    QObject::connect(loginPage, SIGNAL(LoginSignal(QString,QString)),this, SLOT(Login(QString,QString)));
+    QObject::connect(signUpPage, SIGNAL(createAccountSignal(QString,QString,QString,QString)),this, SLOT(CreateAccount(QString,QString,QString,QString)));
+
 
 }
 
@@ -43,10 +47,22 @@ void StartWindow::showStartPage(){
     startPage->show();
 }
 
-void StartWindow::showAppWindow(){
-    hide();
-    appWindow->show();
+void StartWindow::Login(QString username, QString password){
+    if(db->CheckCredentials(username,password)){
+        hide();
+        appWindow->show();
+        return;
+    }
+    QMessageBox errorBox;
+    errorBox.setText("Invalid Credentials!");
+    errorBox.exec();
+
 }
+
+void StartWindow::CreateAccount(QString username, QString email, QString password, QString confirmedPassword){
+   db->CreateUser(username,email,password,confirmedPassword);
+}
+
 StartWindow::~StartWindow()
 {
     delete ui;

@@ -11,6 +11,7 @@ public:
     Database(QString databaseName, QString hostName, QString username, QString password);
     bool Connect();
     bool CheckCredentials(QString username, QString password);
+    void CreateUser(QString username, QString email, QString password, QString ConfirmedPassword);
 private:
     QSqlDatabase dbActor;
 };
