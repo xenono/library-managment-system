@@ -12,9 +12,7 @@ Database::Database(QString databaseName, QString hostName, QString username, QSt
 
 bool Database::Connect(){
     bool isConnected = dbActor.open();
-    if(isConnected)
-        qInfo("Database connected");
-    else{
+    if(!isConnected){
         QMessageBox errorBox;
         errorBox.setText("Failed to connect to the database!");
         errorBox.exec();
@@ -46,6 +44,18 @@ void Database::CreateUser(QString username, QString email, QString password, QSt
    query.bindValue(":email", email);
    query.bindValue(":password", password);
    query.exec();
+}
+
+User Database::GetUser(QString username){
+    QSqlQuery query;
+    QString Email, UserType;
+    query.prepare("SELECT * from users WHERE username=:username");
+    query.bindValue(":username", username);
+    query.exec();
+    if(query.next()){
+        Email = query.value("email").toString();
+        UserType = query.value("user_type").toString();
+    }
 }
 
 

@@ -13,21 +13,26 @@ SOURCES += \
     database.cpp \
     loginpage.cpp \
     main.cpp \
+    profilepage.cpp \
     signuppage.cpp \
     startpage.cpp \
-    startwindow.cpp
+    startwindow.cpp \
+    user.cpp
 
 HEADERS += \
     appwindow.h \
     database.h \
     loginpage.h \
+    profilepage.h \
     signuppage.h \
     startpage.h \
-    startwindow.h
+    startwindow.h \
+    user.h
 
 FORMS += \
     appwindow.ui \
     loginpage.ui \
+    profilepage.ui \
     signuppage.ui \
     startpage.ui \
     startwindow.ui

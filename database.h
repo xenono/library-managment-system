@@ -4,6 +4,7 @@
 #include <QApplication>
 #include <QtSql/QSqlDatabase>
 #include <QtSql/QSqlQuery>
+#include "user.h"
 
 class Database
 {
@@ -12,6 +13,7 @@ public:
     bool Connect();
     bool CheckCredentials(QString username, QString password);
     void CreateUser(QString username, QString email, QString password, QString ConfirmedPassword);
+    User GetUser(QString username);
 private:
     QSqlDatabase dbActor;
 };

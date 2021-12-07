@@ -4,7 +4,7 @@
 #include <QApplication>
 #include <QtSql/QSqlDatabase>
 #include <QtSql/QSqlQuery>
-
+#include <QDir>
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
@@ -13,7 +13,6 @@ int main(int argc, char *argv[])
     if(!db->Connect()){
         return 0;
     }
-
     AppWindow *appWindow = new AppWindow();
     StartWindow *startWindow = new StartWindow(nullptr, appWindow, db);
 
