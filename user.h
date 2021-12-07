@@ -4,7 +4,7 @@
 class User
 {
 public:
-    User();
+    User(QString username, QString email, QString userType);
     QString GetUsername();
     QString GetEmail();
     QString GetUserType();

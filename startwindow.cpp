@@ -50,7 +50,7 @@ void StartWindow::showStartPage(){
 void StartWindow::Login(QString username, QString password){
     if(db->CheckCredentials(username,password)){
         hide();
-        appWindow->SetLoggedUser(username, password);
+        appWindow->SetLoggedUser(username);
         appWindow->show();
         return;
     }

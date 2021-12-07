@@ -13,7 +13,7 @@ int main(int argc, char *argv[])
     if(!db->Connect()){
         return 0;
     }
-    AppWindow *appWindow = new AppWindow();
+    AppWindow *appWindow = new AppWindow(nullptr, db);
     StartWindow *startWindow = new StartWindow(nullptr, appWindow, db);
 
     startWindow->show();

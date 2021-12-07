@@ -3,6 +3,9 @@
 
 #include <QMainWindow>
 #include "profilepage.h"
+#include "user.h"
+#include "database.h"
+#include <QtWidgets>
 
 namespace Ui {
 class AppWindow;
@@ -13,8 +16,8 @@ class AppWindow : public QMainWindow
     Q_OBJECT
 
 public:
-    explicit AppWindow(QWidget *parent = nullptr);
-    void SetLoggedUser(QString username, QString password, QString UserType = "librarian");
+    explicit AppWindow(QWidget *parent = nullptr, Database *dbActor = nullptr);
+    void SetLoggedUser(QString username);
     ~AppWindow();
 
 private slots:
@@ -22,11 +25,10 @@ private slots:
 
 private:
     Ui::AppWindow *ui;
-    QString Username;
-    QString Password;
-    QString Email;
-    QString UserType;
+    User *LoggedUser;
     ProfilePage *profilePage;
+    Database *db;
+    QPushButton* AddBookButton;
 };
 
 #endif // APPWINDOW_H

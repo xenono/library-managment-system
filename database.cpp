@@ -46,7 +46,7 @@ void Database::CreateUser(QString username, QString email, QString password, QSt
    query.exec();
 }
 
-User Database::GetUser(QString username){
+User *Database::GetUser(QString username){
     QSqlQuery query;
     QString Email, UserType;
     query.prepare("SELECT * from users WHERE username=:username");
@@ -56,6 +56,8 @@ User Database::GetUser(QString username){
         Email = query.value("email").toString();
         UserType = query.value("user_type").toString();
     }
+    User *user = new User(username, Email, UserType);
+    return user;
 }
 
 
