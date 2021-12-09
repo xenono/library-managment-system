@@ -9,6 +9,7 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    addbookpage.cpp \
     allbookspage.cpp \
     appwindow.cpp \
     bookwidget.cpp \
@@ -22,6 +23,7 @@ SOURCES += \
     user.cpp
 
 HEADERS += \
+    addbookpage.h \
     allbookspage.h \
     appwindow.h \
     bookwidget.h \
@@ -34,6 +36,7 @@ HEADERS += \
     user.h
 
 FORMS += \
+    addbookpage.ui \
     allbookspage.ui \
     appwindow.ui \
     bookwidget.ui \
