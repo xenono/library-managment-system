@@ -15,8 +15,13 @@ public:
     explicit AddBookPage(QWidget *parent = nullptr);
     ~AddBookPage();
 
+
+
 private slots:
     void on_UploadImageButton_clicked();
+
+signals:
+    void CreateBookSignal(QString title, QString author, int pages, QString image, QString description);
 
 private:
     Ui::AddBookPage *ui;

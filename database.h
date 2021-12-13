@@ -13,6 +13,7 @@ public:
     bool Connect();
     bool CheckCredentials(QString username, QString password);
     void CreateUser(QString username, QString email, QString password, QString ConfirmedPassword);
+    void CreateBook(QString title, QString author, int pages, QString image, QString description);
     User *GetUser(QString username);
 private:
     QSqlDatabase dbActor;
