@@ -48,7 +48,7 @@ void Database::CreateUser(QString username, QString email, QString password, QSt
 
 void Database::CreateBook(QString title, QString author, int pages, QString image, QString description){
     QSqlQuery query;
-    query.prepare("INSERT INTO books (title,author,pages,image,description) VALUES (:title,:author,:pages,:image,:description");
+    query.prepare("INSERT INTO books (title,author,pages,image,description) VALUES (:title,:author,:pages,:image,:description)");
     query.bindValue(":title",title);
     query.bindValue(":author",author);
     query.bindValue(":pages",pages);

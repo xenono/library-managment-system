@@ -25,6 +25,7 @@ public:
 private slots:
     void on_pushButton_2_clicked();
     void on_AddBook_clicked();
+    void CreateBook(QString title, QString author, int pages, QString image, QString description);
 
 private:
     Ui::AppWindow *ui;

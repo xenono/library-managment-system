@@ -58,6 +58,7 @@ else:unix: LIBS += -L$$PWD/../../mysql/lib/ -lmysqlcppconn
 
 INCLUDEPATH += $$PWD/../../mysql/include
 DEPENDPATH += $$PWD/../../mysql/include
+INCLUDEPATH += /usr/include/c++/4.3
 
 unix:!macx: LIBS += -L$$PWD/../../mysql/lib/ -lmysqlcppconn-static
 

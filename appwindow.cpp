@@ -21,6 +21,7 @@ AppWindow::AppWindow(QWidget *parent, Database *dbActor) :
 //    AddBookButton = new QPushButton(this);
 //    AddBookButton->hide();
 //    AddBookButton->setText("Add book");
+    QObject::connect(addBookPage, SIGNAL(CreateBookSignal(QString,QString,int,QString,QString)), this,SLOT(CreateBook(QString,QString,int,QString,QString)));
 }
 
 void AppWindow::SetLoggedUser(QString username){
@@ -51,5 +52,8 @@ void AppWindow::on_AddBook_clicked()
 {
     HideAllViews();
     addBookPage->show();
+}
+void AppWindow::CreateBook(QString title, QString author, int pages, QString image, QString description){
+    db->CreateBook(title,author,pages,image,description);
 }
 

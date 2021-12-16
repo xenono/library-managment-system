@@ -21,15 +21,22 @@ AddBookPage::~AddBookPage()
 void AddBookPage::on_UploadImageButton_clicked()
 {
     QString Title = ui->Title->text();
+    Image["FileName"] = QFileDialog::getOpenFileName(this, "Choose a file", QDir::homePath()); // Last arugment filter, later add .jpg,.png.jpeg
+
+    Image["ImageExtension"] = "." + Image["FileName"].split(".")[Image["FileName"].split(".").length() - 1];
+    Image["Destination"] = SERVER + Title + Image["ImageExtension"];
+}
+
+
+void AddBookPage::on_pushButton_clicked()
+{
+    QString Title = ui->Title->text();
     QString Author = ui->Author->text();
     QString Description = ui->Description->toPlainText();
     int Pages = ui->Pages->text().toInt();
+    QFile::remove(Image["Destination"]);
+    QFile::copy(Image["FileName"],Image["Destination"]);
+    emit CreateBookSignal(Title, Author,Pages,Image["Destination"],Description);
 
-    QString file_name = QFileDialog::getOpenFileName(this, "Choose a file", QDir::homePath()); // Last arugment filter, later add .jpg,.png.jpeg
-    QString ImageExtension = "." + file_name.split(".")[file_name.split(".").length() - 1];
-    QString Image = SERVER + Title + ImageExtension;
-    QFile::remove(Image);
-    QFile::copy(file_name,Image);
-    emit CreateBookSignal(Title, Author,Pages,Image,Description);
 }
 
