@@ -6,6 +6,7 @@
 #include "user.h"
 #include "database.h"
 #include "addbookpage.h"
+#include "allbookspage.h"
 #include <QtWidgets>
 
 namespace Ui {
@@ -27,11 +28,14 @@ private slots:
     void on_AddBook_clicked();
     void CreateBook(QString title, QString author, int pages, QString image, QString description);
 
+    void on_pushButton_clicked();
+
 private:
     Ui::AppWindow *ui;
     User *LoggedUser;
     ProfilePage *profilePage;
     AddBookPage *addBookPage;
+    AllBooksPage *allBooksPage;
     Database *db;
     QPushButton* AddBookButton;
 };

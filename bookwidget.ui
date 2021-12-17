@@ -13,7 +13,7 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <widget class="QLabel" name="label">
+  <widget class="QLabel" name="ImageField">
    <property name="geometry">
     <rect>
      <x>30</x>
@@ -43,30 +43,30 @@
    </property>
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
-     <widget class="QLabel" name="label_3">
+     <widget class="QLabel" name="TitleField">
       <property name="text">
        <string>Algortihms and Data Structures</string>
       </property>
      </widget>
     </item>
     <item>
-     <widget class="QLabel" name="label_2">
+     <widget class="QLabel" name="AuthorField">
       <property name="text">
        <string>Kurth Mehlhorn, Peter Sanders</string>
       </property>
      </widget>
     </item>
     <item>
-     <widget class="QLabel" name="label_4">
+     <widget class="QLabel" name="PagesField">
       <property name="text">
-       <string>23 June 2008</string>
+       <string>312 Pages</string>
       </property>
      </widget>
     </item>
     <item>
-     <widget class="QLabel" name="label_5">
+     <widget class="QLabel" name="DateField">
       <property name="text">
-       <string>312 Pages</string>
+       <string>23 June 2008</string>
       </property>
      </widget>
     </item>

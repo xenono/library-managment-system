@@ -2,6 +2,7 @@
 #include "ui_appwindow.h"
 #include "profilepage.h"
 #include "addbookpage.h"
+#include "allbookspage.h"
 
 AppWindow::AppWindow(QWidget *parent, Database *dbActor) :
     QMainWindow(parent),
@@ -12,6 +13,8 @@ AppWindow::AppWindow(QWidget *parent, Database *dbActor) :
     db = dbActor;
     profilePage = new ProfilePage(this);
     addBookPage = new AddBookPage(this);
+    allBooksPage = new AllBooksPage(this);
+    allBooksPage->move(0,150);
     profilePage->move(0,150);
     addBookPage->move(0,150);
     profilePage->hide();
@@ -34,6 +37,7 @@ void AppWindow::SetLoggedUser(QString username){
 void AppWindow::HideAllViews(){
     profilePage->hide();
     addBookPage->hide();
+    allBooksPage->hide();
 }
 
 AppWindow::~AppWindow()
@@ -55,5 +59,12 @@ void AppWindow::on_AddBook_clicked()
 }
 void AppWindow::CreateBook(QString title, QString author, int pages, QString image, QString description){
     db->CreateBook(title,author,pages,image,description);
+}
+
+
+void AppWindow::on_pushButton_clicked()
+{
+    HideAllViews();
+    allBooksPage->show();
 }
 
