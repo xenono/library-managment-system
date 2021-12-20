@@ -23,3 +23,28 @@ BookWidget::~BookWidget()
 {
     delete ui;
 }
+
+const QString &BookWidget::getTitle() const
+{
+    return Title;
+}
+
+const QString &BookWidget::getAuthor() const
+{
+    return Author;
+}
+
+const QString &BookWidget::getDescription() const
+{
+    return Description;
+}
+
+const QString &BookWidget::getImage() const
+{
+    return Image;
+}
+
+const QString &BookWidget::getPages() const
+{
+    return Pages;
+}

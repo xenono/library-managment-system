@@ -13,7 +13,7 @@ AppWindow::AppWindow(QWidget *parent, Database *dbActor) :
     db = dbActor;
     profilePage = new ProfilePage(this);
     addBookPage = new AddBookPage(this);
-    allBooksPage = new AllBooksPage(this);
+    allBooksPage = new AllBooksPage(this, db);
     allBooksPage->move(0,150);
     profilePage->move(0,150);
     addBookPage->move(0,150);

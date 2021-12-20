@@ -19,7 +19,7 @@ public:
     void CreateUser(QString username, QString email, QString password, QString ConfirmedPassword);
     void CreateBook(QString title, QString author, int pages, QString image, QString description);
     User *GetUser(QString username);
-    QSqlQuery* GetAllBooks();
+    QSqlQuery GetAllBooks();
 
 private:
     QSqlDatabase dbActor;

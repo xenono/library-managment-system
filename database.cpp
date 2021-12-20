@@ -71,14 +71,13 @@ User *Database::GetUser(QString username){
     return user;
 }
 
-QSqlQuery* Database::GetAllBooks(){
+QSqlQuery Database::GetAllBooks(){
     list<BookWidget> AllBooks;
     BookWidget temp;
     QSqlQuery query("SELECT * from books");
     query.exec();
-    if(query.next())
-        return &query;
-    return nullptr;
+    return query;
+//    return nullptr;
 }
 
 
