@@ -4,6 +4,7 @@
 #include <QWidget>
 #include "database.h"
 #include <QVector>
+#include <QVBoxLayout>
 
 namespace Ui {
 class AllBooksPage;
@@ -23,6 +24,7 @@ private:
     Ui::AllBooksPage *ui;
     Database* db;
     QVector<BookWidget*> ListOfBooks;
+    QVBoxLayout* VerticalBooksLayout;
 
 
 };

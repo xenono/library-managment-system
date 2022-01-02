@@ -2,12 +2,15 @@
 <ui version="4.0">
  <class>AllBooksPage</class>
  <widget class="QWidget" name="AllBooksPage">
+  <property name="enabled">
+   <bool>true</bool>
+  </property>
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1080</width>
-    <height>464</height>
+    <width>1280</width>
+    <height>600</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -26,16 +29,40 @@
     <string>All Books</string>
    </property>
   </widget>
-  <widget class="QWidget" name="verticalLayoutWidget">
+  <widget class="QScrollArea" name="scrollArea">
    <property name="geometry">
     <rect>
      <x>40</x>
      <y>40</y>
-     <width>1021</width>
-     <height>401</height>
+     <width>1201</width>
+     <height>500</height>
     </rect>
    </property>
-   <layout class="QVBoxLayout" name="verticalLayout"/>
+   <property name="verticalScrollBarPolicy">
+    <enum>Qt::ScrollBarAlwaysOn</enum>
+   </property>
+   <property name="sizeAdjustPolicy">
+    <enum>QAbstractScrollArea::AdjustToContents</enum>
+   </property>
+   <property name="widgetResizable">
+    <bool>true</bool>
+   </property>
+   <widget class="QWidget" name="scrollAreaWidgetContents">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>1185</width>
+      <height>2000</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>0</width>
+      <height>2000</height>
+     </size>
+    </property>
+   </widget>
   </widget>
  </widget>
  <resources/>
